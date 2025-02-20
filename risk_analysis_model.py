@@ -66,6 +66,9 @@ grid_search.fit(X_train, y_train)
 # Best model
 best_model = grid_search.best_estimator_
 
+joblib.dump(X_train.columns.tolist(), "train_columns.pkl")
+print("✅ Saved training feature columns: train_columns.pkl")
+
 # Save the trained model properly
 model_path = "best_xgb_model.json"
 best_model.save_model(model_path)
